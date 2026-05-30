@@ -1,0 +1,42 @@
+---
+services:
+  php:
+    build: './php/'
+    networks:
+      - backend
+    environment:
+      - DB_USER=root
+      - DB_PASSWD=rootpassword
+    volumes:
+      - ./serveur1/html:/usr/share/nginx/html
+      - ./serveur2/html:/usr/share/nginx/html
+  nginx:
+    image: nginx:alpine
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ./serveur1/html:/usr/share/nginx/html
+      - ./serveur1/conf:/etc/nginx/conf.d
+      - ./serveur2/html:/usr/share/nginx/html
+      - ./serveur2/conf:/etc/nginx/conf.d
+  mysql:
+    image: mysql:latest
+    restart: always
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    volumes:
+      - dbdata:/var/lib/mysql
+
+networks:
+  frontend:
+  backend:
+volumes:
+  dbdata:
