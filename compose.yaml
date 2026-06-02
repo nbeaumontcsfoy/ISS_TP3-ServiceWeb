@@ -10,18 +10,24 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
   serveur1:
     image: httpd:alpine
+    depends_on:
+      - php1
     networks:
       - frontend
       - backend
     volumes:
       - ./serveur1/html:/usr/local/apache2/htdocs
+      - ./serveur1/conf:/usr/local/apache2/conf
   serveur2:
     image: httpd:alpine
+    depends_on:
+      - php2
     networks:
       - frontend
       - backend
     volumes:
       - ./serveur2/html:/usr/local/apache2/htdocs
+      - ./serveur2/conf:/usr/local/apache2/conf
   php1:
     build: './php/'
     networks:

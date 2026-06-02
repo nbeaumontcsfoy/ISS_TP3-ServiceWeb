@@ -1,8 +1,8 @@
-<h1>Je te test!</h1>
+<h1>Serveur1 Apache</h1>
 <h4>Tentative de connexion MySQL depuis PHP...</h4>
 <?php
 	//phpinfo();
-$host = 'mysql';
+$host = 'mysql1';
 $user = $_ENV["DB_USER"];
 $pass = $_ENV["DB_PASSWD"];
 $conn = new mysqli($host, $user, $pass);
