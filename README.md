@@ -9,7 +9,7 @@
 - Utiliser php-fpm comme FastCGI.
 - Utiliser MySQL comme serveur de base de données.
 
-./tp3.jpg
+![](./tp3.jpg)
 
 
 Lien vers la vidéo
