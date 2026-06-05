@@ -12,5 +12,5 @@
 ![](./tp3.jpg)
 
 
-Lien vers la vidéo
+Lien vers la vidéo (réalisée avec Pierre-Alexandre Déry)
 https://www.youtube.com/watch?v=fgMnt3uDpSs
